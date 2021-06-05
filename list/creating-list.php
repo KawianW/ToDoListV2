@@ -1,6 +1,5 @@
 <?php
     require_once "../include/conn.php";
-    print_r("het werkt");
 
     $list_name = $_POST['list_name'];
 

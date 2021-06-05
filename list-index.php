@@ -32,9 +32,9 @@ include "include/getList.php";
                     <?php foreach ($result as $row) {  ?>
 
                         <td style="border: none;"><?php echo $row['list_name']; ?></td>
-                        <td style="border: none;"><a class="btn btn-info" href="task-index.php?id=<?php echo $row['list_id'] ?>"></td>
-                        <td style="border: none;"><a class="btn btn-danger" href="list/delete-list.php?list_id=<?php echo $row['list_id'] ?>"></a></td>
-                        <td style="border: none;"><a class="btn btn-warning" href="list/edit-list.php?list_id=<?php echo $row['list_id'] ?>"></a></td>
+                        <td style="border: none;"><a class="btn btn-info" href="task-index.php?id=<?php echo $row['list_id'] ?>"><i class="fas fa-tasks"></i></td>
+                        <td style="border: none;"><a class="btn btn-danger" href="list/delete-list.php?list_id=<?php echo $row['list_id'] ?>"><i class="fas fa-dumpster"></i></a></td>
+                        <td style="border: none;"><a class="btn btn-warning" href="list/edit-list.php?list_id=<?php echo $row['list_id'] ?>"><i class="fas fa-edit"></i></a></td>
                         
                 </tr>
                 <?php } ?>
