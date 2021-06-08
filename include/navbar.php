@@ -10,7 +10,6 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="list-index.php">lijsten</a>
-      <a class="nav-item nav-link active" href="task-index.php">Taken</a>
     </div>
   </div>
 </nav>
