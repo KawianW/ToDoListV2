@@ -4,7 +4,7 @@
     require '../include/conn.php';
 
     $query = $dbconn->prepare("DELETE FROM `Lists` WHERE list_id = :list_id");
-    $query->bindParam(":list_id" , $list_id,PDO::PARAM_INT);
+    $query->bindParam(":list_id" , $list_id);
     $query->execute();
 
     $dbconn = null;
