@@ -2,8 +2,8 @@
 require "include/conn.php";
 
 $list_id = $_GET['id'];
-$query = $dbconn->prepare("SELECT * FROM `Tasks` WHERE list_id = :list_id");
-$query->bindParam(":list_id" , $list_id,PDO::PARAM_INT);
+$query = $dbconn->prepare("SELECT * FROM `Tasks` WHERE list_id = :list_id ORDER BY task_time DESC, task_status");
+$query->bindParam(":list_id" , $list_id);
 $query->execute();
 $result = $query->fetchAll();
 
