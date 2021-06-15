@@ -1,8 +1,12 @@
 <?php
-require __DIR__ . '/include/conn.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 include "include/header.php";
 include "include/navbar.php";
 include "include/getList.php";
+inlcude "include/functions.php";
+$dbconn = DBconnection();
 ?>
 
 <!DOCTYPE html>

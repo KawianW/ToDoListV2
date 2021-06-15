@@ -1,12 +1,16 @@
 <?php
-    require_once "../include/conn.php";
+    function createList() {
 
-    $list_name = $_POST['list_name'];
+        $dbconn = DBconnection();
 
-    $query = $dbconn->prepare("INSERT INTO `Lists` (list_name) VALUES(:list_name)");
-    $query->bindParam(":list_name" , $list_name ,PDO::PARAM_STR);
-    $query->execute();
-    $dbconn = null;
+        $list_name = $_POST['list_name'];
 
-    header("location: ../list-index.php");
+        $query = $dbconn->prepare("INSERT INTO `Lists` (list_name) VALUES(:list_name)");
+        $query->bindParam(":list_name" , $list_name ,PDO::PARAM_STR);
+        $query->execute();
+        $dbconn = null;
+
+        header("location: ../list-index.php");
+    }
+    createList();
 ?>

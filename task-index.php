@@ -1,8 +1,11 @@
 <?php
-require "include/conn.php";
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+require "../";
 
 $list_id = $_GET['id'];
-$query = $dbconn->prepare("SELECT * FROM `Tasks` WHERE list_id = :list_id ORDER BY task_time DESC, task_status");
+$query = $dbconn->prepare("SELECT * FROM `Tasks` WHERE list_id = :list_id");
 $query->bindParam(":list_id" , $list_id);
 $query->execute();
 $result = $query->fetchAll();
@@ -24,8 +27,8 @@ include "include/navbar.php";
         <thead>
             <tr>
             <th scope="col">Task name</th>
-            <th scope="col">Task status</th>
-            <th scope="col">Task time</th>
+            <th scope="col"><a href="?id=<?=$list_id?>&test=yup">Task status</a></th>
+            <th scope="col"><a href="#">Task time</a></th>
             <th scope="col">Delete Task</th>
             <th scope="col">Edit Task</th>
             </tr>
