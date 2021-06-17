@@ -1,14 +1,9 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-require "../";
+include_once "include/functions.php";
+$result = getTask();
+$list_id = $_GET['list_id'];
 
-$list_id = $_GET['id'];
-$query = $dbconn->prepare("SELECT * FROM `Tasks` WHERE list_id = :list_id");
-$query->bindParam(":list_id" , $list_id);
-$query->execute();
-$result = $query->fetchAll();
+
 
 include "include/header.php";
 include "include/navbar.php";
@@ -26,9 +21,10 @@ include "include/navbar.php";
         <table class="table table-dark">
         <thead>
             <tr>
-            <th scope="col">Task name</th>
-            <th scope="col"><a href="?id=<?=$list_id?>&test=yup">Task status</a></th>
-            <th scope="col"><a href="#">Task time</a></th>
+            <th scope="col">Task name</th>                  
+            <!-- assosiated array -->
+            <th scope="col"><a href="?list_id=<?=$list_id?>&test=status">Task status</a></th>
+            <th scope="col"><a href="?list_id=<?=$list_id?>&test=time">Task time</a></th>
             <th scope="col">Delete Task</th>
             <th scope="col">Edit Task</th>
             </tr>

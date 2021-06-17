@@ -1,9 +1,10 @@
 <?php
     
+    
     $list_id = $_GET['list_id'];
-
-    require '../include/conn.php';
-
+    
+    include_once "../include/functions.php";
+    $dbconn = DBconnection();
     // verwijderd de lijst
     $query = $dbconn->prepare("DELETE FROM `Lists` WHERE list_id = :list_id");
     $query->bindParam(":list_id" , $list_id);

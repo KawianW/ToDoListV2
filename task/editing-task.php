@@ -1,14 +1,9 @@
 <?php
-require "../include/conn.php";
-include "../include/getLists.php";
+include_once "../include/functions.php";
+$dbconn = DBconnection();
+$result = task();
 
-
-$query = $dbconn->prepare("SELECT * FROM `Tasks` WHERE task_id=:task_id");
-$query->bindParam(':task_id', $_GET['id']);
-$query->execute();
-$result = $query->fetch();
-
-$list_id = $_GET['list_id'];
+$list_id = $_POST['list_id'];
 
 // $task_id = $_GET['task_id'];
 $task_name = $_POST['task_name'];
@@ -28,6 +23,6 @@ $query->execute();
 $dbconn = null;
 
 
-header("location: ../task-index.php?id=" .  $_POST['list_id']);
+header("location: ../task-index.php?list_id=" .  $list_id);
 
 ?>

@@ -1,15 +1,18 @@
 <?php
     include "../include/header.php";
-    include "../include/conn.php";
-
-    $list_id = $_GET['list_id'];
-
-    $query = $dbconn->prepare("SELECT * FROM `Lists` WHERE list_id = :list_id");
-    $query->bindParam(":list_id" , $list_id,PDO::PARAM_INT);
-    $query->execute();
-    $result = $query->fetch();
-
+    include_once "../include/functions.php";
+    $result = getList();
+    // $dbconn = DBconnection();
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
 <body style='background-color: #343a40'>
   <div class="container p-0">
     <h1 style="color:#ffffff"> Pas de lijst aan </h1>
@@ -23,3 +26,5 @@
     </form>
   </div>
 </body>
+  
+</html>
