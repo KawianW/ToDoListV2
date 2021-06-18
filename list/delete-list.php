@@ -17,4 +17,3 @@
     $dbconn = null;
 
     header('location: ../list-index.php');
-?>

@@ -4,7 +4,7 @@
     $list_name = $_POST['list-name'];
 ?>
 
-<!-- this is the form you are seeing when you want to create the task -->
+<!-- dit is de form die je ziet als je een taak wilt toevoegen -->
 
 <body style="background-color: #343a40">
     <div class="container">

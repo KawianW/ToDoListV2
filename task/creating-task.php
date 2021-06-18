@@ -4,10 +4,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 include_once "../include/functions.php";
 $dbconn = DBconnection();
-$result = getTask();
 
-
-// prepares and executes the statement and gets the id from the list you are working in
 $list_id = $_GET['list_id'];
 
 // $task_id = $_GET['task_id'];
@@ -29,4 +26,3 @@ $query->execute();
 $dbconn = null;
 
 header("location: ../task-index.php?list_id=" . $list_id);
-?>

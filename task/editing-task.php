@@ -11,7 +11,7 @@ $task_status = $_POST['task_status'];
 $task_time = $_POST['task_time'];
 
 
-// Prepares the statement to update the tasks.
+// Prepared de statement om geupdate te worden.
 
 $query = $dbconn->prepare("UPDATE Tasks SET task_name = :task_name, task_time = :task_time, task_status = :task_status WHERE task_id = :task_id");
 $query->bindParam(':task_name', $task_name);
@@ -24,5 +24,3 @@ $dbconn = null;
 
 
 header("location: ../task-index.php?list_id=" .  $list_id);
-
-?>

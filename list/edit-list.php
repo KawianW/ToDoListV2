@@ -1,11 +1,12 @@
 <?php
-    include "../include/header.php";
-    include_once "../include/functions.php";
-    $result = getList();
-    // $dbconn = DBconnection();
+include "../include/header.php";
+include_once "../include/functions.php";
+$result = getList();
+// $dbconn = DBconnection();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,5 +27,5 @@
     </form>
   </div>
 </body>
-  
+
 </html>
