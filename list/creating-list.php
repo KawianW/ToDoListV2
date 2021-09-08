@@ -1,14 +1,6 @@
 <?php
-include_once "../include/functions.php";
-    
-    $dbconn = DBconnection();
-
-    $list_name = $_POST['list_name'];
-
-    // voegd lijst toe
-    $query = $dbconn->prepare("INSERT INTO `Lists` (list_name) VALUES(:list_name)");
-    $query->bindParam(":list_name" , $list_name);
-    $query->execute();
-    $dbconn = null;
+include_once "../include/listFunctions.php";
+    $listName = $_POST['list_name'];
+    insertList($listName);
 
     header("location: ../list-index.php");

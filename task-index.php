@@ -1,20 +1,23 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-include_once "include/functions.php";
+include "include/taskFunctions.php";
+
 $list_id = $_GET['list_id'];
+$filter = $_GET['filter'];
+getTask($filter, $list_id);
+
+
+
 // checkt of er een variable filter bestaat
-if (isset($_GET['filter'])) {
+if (isset($filter)) {
     // als er een filter gevonden is gaat die checken of het over een komt met de waardes van filter
-    if ($_GET['filter'] == 'status') {
-        $result = getTask(true);
+    if ($filter == 'status') {
+        $result = getTask(true, $list_id);
     } else {
-        $result = getTask(false);
+        $result = getTask(false, $list_id);
     }
     // als er geen filter variable is dan doet hij niks
 } else {
-    $result = getTask(false);
+    $result = getTask(false, $list_id);
 }
 
 include "include/header.php";

@@ -1,26 +1,17 @@
 <?php
-include_once "../include/functions.php";
-$dbconn = DBconnection();
-$result = task();
+include "../include/taskFunctions.php";
+// include "../include/listFunctions.php";
+$result = task($task_id);
 
 $list_id = $_POST['list_id'];
+$taskId = $_POST['task_id'];
 
-// $task_id = $_GET['task_id'];
 $task_name = $_POST['task_name'];
 $task_status = $_POST['task_status'];
 $task_time = $_POST['task_time'];
 
-
-// Prepared de statement om geupdate te worden.
-
-$query = $dbconn->prepare("UPDATE Tasks SET task_name = :task_name, task_time = :task_time, task_status = :task_status WHERE task_id = :task_id");
-$query->bindParam(':task_name', $task_name);
-$query->bindParam(':task_time', $task_time);
-$query->bindParam(':task_status', $task_status);
-$query->bindParam(':task_id', $_POST['task_id']);
-$query->execute();
-
-$dbconn = null;
+updateTask($task_name, $task_time, $task_status, $taskId);
 
 
-header("location: ../task-index.php?list_id=" .  $list_id);
+
+header("location: ../task-index.php?list_id=" . $list_id);

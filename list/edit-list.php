@@ -1,9 +1,13 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 include "../include/header.php";
-include_once "../include/functions.php";
-$result = getList();
-// $dbconn = DBconnection();
+include "../include/listFunctions.php";
+$list_id = $_GET['list_id'];
+$list_name = $_GET['list_name']
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,8 +24,8 @@ $result = getList();
     <form action="editing-List.php" method="POST">
       <div class="form-group">
         <label for="listName" style="color:#ffffff;">List name</label>
-        <input type="text" class="form-control" name="list_name" value="<?php echo $result['list_name'] ?>" placeholder="<?php echo $result['list_name'] ?>" required>
-        <input type="hidden" name="list_id" value="<?php echo $result['list_id'] ?>">
+        <input type="text" class="form-control" name="list_name" value="<?php echo $list_name ?>" placeholder="<?php echo $list_name ?>" required>
+        <input type="hidden" name="list_id" value="<?php echo $list_id ?>">
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>

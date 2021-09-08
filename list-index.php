@@ -4,9 +4,13 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 include "include/header.php";
 include "include/navbar.php";
-include_once  "include/functions.php";
+include "include/listFunctions.php";
 $result = getLists();
-// $dbconn = DBconnection();
+
+//dbConnectie functie alleen in mn function map 
+//geen request meer in de functies. alle get/post dingen er uit
+//geen queries meer in mijn view, alles scheiden en in functies zetten
+//goed gebruik van commentaar. doc block boven functies, inline in de functies
 ?>
 
 <!DOCTYPE html>
@@ -36,9 +40,9 @@ $result = getLists();
                     <?php foreach ($result as $row) {  ?>
 
                         <td style="border: none;"><?php echo $row['list_name']; ?></td>
-                        <td style="border: none;"><a class="btn btn-info" href="task-index.php?list_id=<?php echo $row['list_id'] ?>"><i class="fas fa-tasks"></i></td>
+                        <td style="border: none;"><a class="btn btn-info" href="task-index.php?list_id=<?php echo $row['list_id']?>&filter=time"><i class="fas fa-tasks"></i></td>
                         <td style="border: none;"><a class="btn btn-danger" href="list/delete-list.php?list_id=<?php echo $row['list_id'] ?>"><i class="fas fa-dumpster"></i></a></td>
-                        <td style="border: none;"><a class="btn btn-warning" href="list/edit-list.php?list_id=<?php echo $row['list_id'] ?>"><i class="fas fa-edit"></i></a></td>
+                        <td style="border: none;"><a class="btn btn-warning" href="list/edit-list.php?list_id=<?php echo $row['list_id']?>&<?php echo $row['list_name']?>"><i class="fas fa-edit"></i></a></td>
 
                 </tr>
             <?php } ?>

@@ -1,15 +1,10 @@
 <?php 
-$task_id = $_GET['task_id'];
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+include_once "../include/taskFunctions.php";
+$taskId = $_GET['task_id'];
+deleteTask($taskId);
 
-include_once "../include/functions.php";
-$dbconn = DBconnection();
-
-// verwijderd de taak
-$query = $dbconn->prepare("DELETE FROM `Tasks` WHERE task_id = :task_id");
-$query->bindParam(":task_id" , $task_id);
-$query->execute();
-
-$dbconn = null;
-
-header('location: ../list-index.php');
+header('location: ../task-index.php');
 ?>
