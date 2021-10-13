@@ -1,6 +1,9 @@
 <?php
 include_once "functions.php";
 
+/**
+ * getList pakt de items die bij het id van de list horen uit de database
+ */
 function getList($listId)
 {
     if(isset($listId)) {
@@ -20,10 +23,10 @@ function getList($listId)
 function getLists()
 {
     $dbconn = DBconnection();
-    /* Hier pakt de code alle data uit de table 'Lists' */
+    //Hier pakt de code alle data uit de table 'Lists' 
     $query = $dbconn->prepare('SELECT * FROM Lists');
     $query->execute();
-    /* Het resultaat wordt uit de database gefechd */
+    //Het resultaat wordt uit de database gefechd
     $result = $query->fetchAll();
     return $result;
 }
@@ -34,7 +37,7 @@ function getLists()
 function updateList($list_id, $list_name) {
     if (isset($list_id)) {
         $dbconn = DBconnection();
-
+        // zorgt ervoor dat de list geupdate word
         $query = $dbconn->prepare("UPDATE `Lists` SET list_name = :list_name WHERE list_id=:list_id");
         $query->bindParam(':list_name', $list_name);
         $query->bindParam(':list_id', $_POST["list_id"]);
@@ -49,7 +52,7 @@ function updateList($list_id, $list_name) {
  function insertList($listName) {
      if (isset($listName)) {
         $dbconn = DBconnection();
-
+        // zorgt ervoor dat de lijst toegevoegd word aan de database
         $query = $dbconn->prepare("INSERT INTO `Lists` (list_name) VALUES(:list_name)");
         $query->bindParam(":list_name" , $listName);
         $query->execute();

@@ -42,7 +42,7 @@ $result = getLists();
                         <td style="border: none;"><?php echo $row['list_name']; ?></td>
                         <td style="border: none;"><a class="btn btn-info" href="task-index.php?list_id=<?php echo $row['list_id']?>&filter=time"><i class="fas fa-tasks"></i></td>
                         <td style="border: none;"><a class="btn btn-danger" href="list/delete-list.php?list_id=<?php echo $row['list_id'] ?>"><i class="fas fa-dumpster"></i></a></td>
-                        <td style="border: none;"><a class="btn btn-warning" href="list/edit-list.php?list_id=<?php echo $row['list_id']?>&<?php echo $row['list_name']?>"><i class="fas fa-edit"></i></a></td>
+                        <td style="border: none;"><a class="btn btn-warning" href="list/edit-list.php?list_id=<?php echo $row['list_id']?>&list_name=<?php echo $row['list_name']?>"><i class="fas fa-edit"></i></a></td>
 
                 </tr>
             <?php } ?>

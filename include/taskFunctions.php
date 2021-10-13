@@ -67,14 +67,8 @@ function updateTask($task_name, $task_time, $task_status, $taskId) {
 function createTask($taskName, $task_status, $task_time, $list_id) {
     if (isset($taskName)) {
         $dbconn = DBconnection();
-    
-        // $task_name = $_POST['task_name'];
-        // $task_status = $_POST['task_status'];
-        // $task_time = $_POST['task_time'];
-        // $list_id = $_GET['list_id'];
         
         // prepares the statement to create the tasks
-
         $query = $dbconn->prepare("INSERT INTO Tasks (task_name, list_id, task_time, task_status) VALUES (:task_name, :list_id, :task_time, :task_status)");
         $query->bindParam(':task_name', $taskName);
         $query->bindParam(':list_id', $list_id);
@@ -86,11 +80,14 @@ function createTask($taskName, $task_status, $task_time, $list_id) {
 
 }
 
+/**
+ * verwijderd de taak
+ */
 function deleteTask($taskId) {
     if (isset($taskId)) {
         $dbconn = DBconnection();
     
-        // verwijderd de taak
+        // zorgt ervoor dat de taak verwijderd word
         $query = $dbconn->prepare("DELETE FROM `Tasks` WHERE task_id = :task_id");
         $query->bindParam(":task_id" , $taskId);
         $query->execute();

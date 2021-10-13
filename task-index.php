@@ -1,11 +1,11 @@
 <?php
 include "include/taskFunctions.php";
+include "include/header.php";
+include "include/navbar.php";
 
 $list_id = $_GET['list_id'];
 $filter = $_GET['filter'];
 getTask($filter, $list_id);
-
-
 
 // checkt of er een variable filter bestaat
 if (isset($filter)) {
@@ -20,8 +20,6 @@ if (isset($filter)) {
     $result = getTask(false, $list_id);
 }
 
-include "include/header.php";
-include "include/navbar.php";
 ?>
 
 <!DOCTYPE html>
